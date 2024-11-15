@@ -93,7 +93,7 @@
     height: 130px;
   }
 }.u-section-3 .u-sheet-1 {
-  min-height: 1207px;
+  min-height: 792px;
 }
 
 .u-section-3 .u-text-1 {
@@ -101,7 +101,7 @@
 }
 
 .u-section-3 .u-list-1 {
-  margin: 46px auto 60px;
+  margin: 46px auto 0;
 }
 
 .u-section-3 .u-repeater-1 {
@@ -211,7 +211,6 @@
 
   .u-section-3 .u-list-1 {
     margin-top: 0;
-    margin-bottom: 0;
     margin-right: initial;
     margin-left: initial;
   }
