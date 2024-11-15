@@ -30,7 +30,79 @@
 }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:type" content="website">
-  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <script>
+    function gdprConfirmed() {
+        return true;
+    }
+    function dynamicLoadScript() {
+        var script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js?render=6LcBUYAqAAAAAGY4qW-fE9HVCLZWFw2HweFNpoEP';
+        script.async = true;
+        document.body.appendChild(script);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        var confirmButton = document.querySelector('.u-cookies-consent .u-button-confirm');
+        if (confirmButton) {
+            confirmButton.onclick = dynamicLoadScript;
+        }
+    });
+    </script>
+    <script>
+    if (gdprConfirmed()) {
+        document.write("<sc" + "ript src=\"https://www.google.com/recaptcha/api.js?render=6LcBUYAqAAAAAGY4qW-fE9HVCLZWFw2HweFNpoEP\"></sc" + "ript>");
+    }
+    </script>
+    <script>
+    if (gdprConfirmed()) {
+        (function (grecaptcha, sitekey, actions) {
+            var recaptcha = {
+                execute: function (action, submitFormCb) {
+                    try {
+                        grecaptcha.execute(
+                            sitekey,
+                            {action: action}
+                        ).then(function (token) {
+                            var forms = document.getElementsByTagName('form');
+
+                            for (var i = 0; i < forms.length; i++) {
+                                var fields = forms[i].getElementsByTagName('input');
+
+                                for (var j = 0; j < fields.length; j++) {
+                                    var field = fields[j];
+
+                                    if ('recaptchaResponse' === field.getAttribute('name')) {
+                                        field.setAttribute('value', token);
+                                        break;
+                                    }
+                                }
+                            }
+                            submitFormCb();
+                        });
+                    } catch (e) {
+                        var formError = document.querySelector('.u-form-send-error');
+
+                        if (formError) {
+                            formError.innerText = 'Site Owner Error: ' + e.message.replace(/:[\s\S]*/, '');
+                            formError.style.display = 'block';
+                        }
+                    }
+                },
+
+                executeContact: function (submitFormCb) {
+                    recaptcha.execute(actions['contact'], submitFormCb);
+                }
+            };
+
+            window.recaptchaObject = recaptcha;
+        })(
+            grecaptcha,
+            
+            '6LcBUYAqAAAAAGY4qW-fE9HVCLZWFw2HweFNpoEP',
+            {'contact': 'contact'}
+        );
+    }
+    </script>
+<meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-xl-mode" data-lang="en">
     <section class="u-clearfix u-section-1" id="sec-dcb7">
       <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
@@ -40,87 +112,120 @@
     <section class="u-clearfix u-custom-color-1 u-section-2" id="sec-30e6">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <img class="u-image u-image-default u-opacity u-opacity-35 u-preserve-proportions u-image-1" src="images/22_Solvier_Logo_v4-19WHITE.png" alt="" data-image-width="1201" data-image-height="1201">
-        <h1 class="u-align-center u-text u-text-1">Specialized Custodian of Records</h1>
-        <p class="u-text u-text-2"> At Solvier, we focus solely on providing exceptional custodian of records services. Whether you're a practicing doctor aiming to reduce administrative burdens or close to retirement and looking for a secure transition, we've got you covered.</p>
-        <h2 class="u-text u-text-3"> Tailored Services for Your Unique Needs</h2>
-        <ul class="u-text u-text-4">
-          <li>
-            <span style="font-weight: 700;"></span>
-            <span style="font-weight: 700;">Zero-Cost Service for Eligible Doctors: </span>Whether you're in active practice or approaching retirement, you could qualify for our zero-cost service to manage your medical records request securely as required by law. Lighten the load on your staff and optimize your operations by entrusting us with the specialized tasks of medical records management.
-          </li>
-        </ul>
-        <h2 class="u-text u-text-5">Choose Solvier...</h2>
-        <ul class="u-text u-text-6">
-          <li>
-            <span style="font-weight: 700;"> Efficient and Secure:</span> Quick and meticulous handling of subpoenas and medical records requests.
-          </li>
-          <li>
-            <span style="font-weight: 700;">Organized and Accessible: </span>Advanced systems for easy retrieval and secure storage of medical records.
-          </li>
-          <li>
-            <span style="font-weight: 700;">Full Compliance:</span> Meet all state mandates effortlessly with our HIPAA-compliant solutions.
-          </li>
-        </ul>
+        <p class="u-text u-text-1"> At Solvier, we are committed to providing exceptional custodian of records services, meticulously crafted for the medical community. Our expertise is centered on significantly easing the administrative load for practicing doctors, particularly in the efficient management of legal medical records requests, such as subpoenas for records.<br>
+          <br>We understand the unique challenges faced by medical professionals, and our services are designed to streamline your record-keeping processes, ensuring a smoother, more efficient operation. For doctors approaching retirement, Solvier offers a secure, hassle-free transition service, maintaining the integrity and confidentiality of your records.<br>
+          <br>Choose Solvier for unparalleled precision and care in managing your records. Let us handle the complexities of record-keeping, so you can dedicate more time to your practice and less to paperwork.
+        </p>
         <img class="u-image u-image-contain u-image-default u-opacity u-opacity-35 u-preserve-proportions u-image-2" src="images/22_Solvier_Logo_v4-091.png" alt="" data-image-width="1201" data-image-height="1201">
       </div>
     </section>
-    <section class="u-clearfix u-valign-middle u-section-3" id="sec-dbdb">
-      <img class="u-expanded-height-md u-expanded-height-sm u-expanded-height-xs u-image u-image-default u-image-1" src="images/22_Solvier_LogoAssets_v4-03.png" alt="" data-image-width="5473" data-image-height="1694">
+    <section class="u-align-center u-clearfix u-section-3" id="sec-fc9f">
+      <div class="u-clearfix u-sheet u-valign-bottom-xs u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">Streamlined Medical Records Management</h2>
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1"><span class="u-file-icon u-icon u-text-custom-color-1 u-icon-1"><img src="images/6137008-71c13ff0.png" alt=""></span>
+                <h3 class="u-align-center u-text u-text-default u-text-2">Zero-Cost Service</h3>
+                <p class="u-align-center u-text u-text-default u-text-3"> Whether you're in active practice or approaching retirement, you could qualify for our zero-cost service to manage your medical records request securely as required by law. Lighten the load on your staff and optimize your operations by entrusting us with the specialized tasks of medical records management.</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-2"><span class="u-file-icon u-icon u-text-custom-color-1 u-icon-2"><img src="images/6702723-1b33ed3e.png" alt=""></span>
+                <h3 class="u-align-center u-text u-text-default u-text-4"> Virtual Business Services</h3>
+                <p class="u-align-center u-text u-text-default u-text-5"> Complementary Virtual Business Address, ​complete with document scanning and forwarding. This service enhances your office’s privacy and operational efficiency while reducing administrative burdens, allowing your facility to focus on delivering exceptional care—all at no cost to you.</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-3"><span class="u-file-icon u-icon u-text-custom-color-1 u-icon-3"><img src="images/7790150-d8b71b5a.png" alt=""></span>
+                <h3 class="u-align-center u-text u-text-default u-text-6"> Case Closure Notifications</h3>
+                <p class="u-align-center u-text u-text-default u-text-7"> Efficient financial operations are crucial for healthcare facilities. With Solvier's proactive case closure notifications, we bridge the gap between case management and billing. Our system alerts your collections department immediately upon case closure, allowing for swift action in fee collection. This seamless integration not only improves cash flow but also reduces administrative burdens, ensuring your facility operates at peak efficiency.</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-4"><span class="u-file-icon u-icon u-text-custom-color-1 u-icon-4"><img src="images/5803074-6ee4113e.png" alt=""></span>
+                <h3 class="u-align-center u-text u-text-default u-text-8">Compliant and Confidential</h3>
+                <p class="u-align-center u-text u-text-default u-text-9">As a fully HIPAA compliant service provider, we ensure that every aspect of our document management process meets the highest standards for privacy and security.Unlike practices that allow deposition officers—who represent the opposing party—to scan requested documents, we adhere to strict compliance protocols to protect your facility, your patients, and their cases.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <section class="u-align-center u-clearfix u-custom-color-1 u-section-4" id="sec-0ee2">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <h2 class="u-text u-text-default u-text-1">faq</h2>
-        <p class="u-text u-text-2"> Understanding the Role and Importance of a Custodian of Records: Your Key Questions Answered.</p>
+        <p class="u-text u-text-2"> Understanding the Role and Importance of a Custodian of Records</p>
         <div class="u-accordion u-faq u-spacing-20 u-accordion-1">
           <div class="u-accordion-item">
             <a class="active u-accordion-link u-border-1 u-border-active-grey-75 u-border-grey-15 u-border-hover-grey-75 u-border-no-left u-border-no-right u-border-no-top u-button-style u-text-white u-accordion-link-1" id="link-accordion-6327" aria-controls="accordion-6327" aria-selected="true">
               <span class="u-accordion-link-text"> What is a Custodian of Records?<br>
-              </span><span class="u-accordion-link-icon u-icon u-text-black u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-8021"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-8021" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+              </span><span class="u-accordion-link-icon u-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-8021"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-8021" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
 	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
             </a>
             <div class="u-accordion-active u-accordion-pane u-container-style u-accordion-pane-1" id="accordion-6327" aria-labelledby="link-accordion-6327">
               <div class="u-container-layout u-container-layout-1">
                 <div class="fr-view u-clearfix u-rich-text u-text">
-                  <p>A custodian of records is an entity or individual responsible for maintaining and safeguarding records. These records can be in electronic or paper form. The term might refer to a department, organization, or a specific person tasked with record management.</p>
+                  <p>A custodian of records is an individual, department, or organization responsible for managing, maintaining, and safeguarding records in compliance with privacy laws like HIPAA. These records may include sensitive patient information, legal documents, or organizational data in electronic or paper form. Custodians ensure records are secure, organized, and accessible only to authorized personnel. </p>
                 </div>
               </div>
             </div>
           </div>
           <div class="u-accordion-item">
             <a class="u-accordion-link u-border-1 u-border-active-grey-75 u-border-grey-15 u-border-hover-grey-75 u-border-no-left u-border-no-right u-border-no-top u-button-style u-text-white u-accordion-link-2" id="link-accordion-4aab" aria-controls="accordion-4aab" aria-selected="false">
-              <span class="u-accordion-link-text">What is the importance of a Custodian of Records?</span><span class="u-accordion-link-icon u-icon u-text-black u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-3470"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-3470" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+              <span class="u-accordion-link-text">What is the importance of a Custodian of Records?</span><span class="u-accordion-link-icon u-icon u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-3470"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-3470" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
 	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
             </a>
             <div class="u-accordion-pane u-container-style u-accordion-pane-2" id="accordion-4aab" aria-labelledby="link-accordion-4aab">
               <div class="u-container-layout u-container-layout-2">
                 <div class="fr-view u-clearfix u-rich-text u-text">
-                  <p>Custodian of Records play a pivotal role in data protection. They authenticate records for legal proceedings and ensure consistent and standardized recordkeeping. Their presence ensures that sensitive data remains secure and accessible only to authorized personnel.</p>
+                  <p id="isPasted">Custodians of records are critical to maintaining trust and legal compliance. They:</p>
+                  <ul>
+                    <li>Authenticate records for legal proceedings, ensuring their integrity and validity.</li>
+                    <li>Protect sensitive data from unauthorized access, breaches, or misuse.</li>
+                    <li>Serve as a safeguard against liability by ensuring records are managed according to ethical and legal standards.</li>
+                    <li>Mitigate risks associated with allowing opposing parties, such as deposition officers, to handle sensitive records, which could expose facilities and patients to potential harm.</li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
           <div class="u-accordion-item">
             <a class="u-accordion-link u-border-1 u-border-active-grey-75 u-border-grey-15 u-border-hover-grey-75 u-border-no-left u-border-no-right u-border-no-top u-button-style u-text-white u-accordion-link-3" id="link-accordion-eb1f" aria-controls="accordion-eb1f" aria-selected="false">
-              <span class="u-accordion-link-text"> What are the responsibilities of a Custodian of Records?</span><span class="u-accordion-link-icon u-icon u-text-black u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-e07d"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-e07d" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+              <span class="u-accordion-link-text"> What are the responsibilities of a Custodian of Records?</span><span class="u-accordion-link-icon u-icon u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-e07d"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-e07d" style=""><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
 	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
             </a>
             <div class="u-accordion-pane u-container-style u-accordion-pane-3" id="accordion-eb1f" aria-labelledby="link-accordion-eb1f">
               <div class="u-container-layout u-container-layout-3">
                 <div class="fr-view u-clearfix u-rich-text u-text">
-                  <p>Custodians manage and maintain records, ensuring only authorized access. They handle requests, address legal demands, and stay updated with evolving regulations. Their role also includes protecting data against breaches and ensuring compliance with privacy laws. </p>
+                  <p id="isPasted">Custodians of records take on several key responsibilities, including:</p>
+                  <ul>
+                    <li>Managing and safeguarding records: Ensuring only authorized personnel have access.</li>
+                    <li>Responding to legal and regulatory demands: Handling subpoenas and requests while adhering to privacy laws like HIPAA.</li>
+                    <li>Ensuring compliance: Staying updated on evolving regulations to protect facilities and patients.</li>
+                    <li>Maintaining confidentiality: Preventing unauthorized parties from accessing sensitive records, which could lead to legal exposure or harm to patients.</li>
+                    <li>Proactive communication: Notifying facilities promptly when cases are closed, allowing providers to collect outstanding fees efficiently.</li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
           <div class="u-accordion-item">
             <a class="u-accordion-link u-border-1 u-border-active-grey-75 u-border-grey-15 u-border-hover-grey-75 u-border-no-left u-border-no-right u-border-no-top u-button-style u-text-white u-accordion-link-4" id="link-41b1" aria-controls="41b1" aria-selected="false">
-              <span class="u-accordion-link-text"> Why Should You Have a Custodian of Records?</span><span class="u-accordion-link-icon u-icon u-text-black u-icon-4"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cf8c"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-cf8c"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+              <span class="u-accordion-link-text"> Why Should You Have a Custodian of Records?</span><span class="u-accordion-link-icon u-icon u-icon-4"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cf8c"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-cf8c"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
 	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
             </a>
             <div class="u-accordion-pane u-container-style u-accordion-pane-4" id="41b1" aria-labelledby="link-41b1">
               <div class="u-container-layout u-container-layout-4">
                 <div class="fr-view u-clearfix u-rich-text u-text">
-                  <p>In an era of frequent data breaches, a cusodian of records is crucial. They streamline record-keeping, maintain ethical and legal standards, and enhance operational efficiency. Their expertise guarantees data security, compliance, and accessibility, proving invaluable to any organization.</p>
+                  <p id="isPasted">In today’s regulatory landscape, having a custodian of records is essential for organizations, particularly those in the healthcare and legal sectors. A custodian ensures:</p>
+                  <ul>
+                    <li>Confidentiality and security: Protecting your facility and patients from unauthorized access, breaches, or misuse of sensitive information.</li>
+                    <li>Compliance with privacy laws: Avoiding penalties and legal repercussions by following regulations such as HIPAA and California Evidence Code 1563.</li>
+                    <li>Operational efficiency: Streamlining record-keeping, legal responses, and collections processes.</li>
+                    <li>Mitigation of risks: Preventing deposition officers or other parties from gaining access to records they should not have, protecting patients’ legal interests and your facility’s reputation.</li>
+                    <li>Improved financial operations: By notifying collections departments when cases are closed, custodians help facilities recover outstanding fees promptly and efficiently.</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -128,7 +233,7 @@
         </div>
       </div>
     </section>
-    <section class="u-align-center u-clearfix u-section-5" id="sec-79f3">
+    <section class="u-align-center u-clearfix u-image u-section-5" id="sec-79f3" data-image-width="1600" data-image-height="495">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h2 class="u-text u-text-default u-text-1">Contact Us</h2>
         <div class="u-form u-form-1">
@@ -153,6 +258,7 @@
             <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
             <input type="hidden" value="" name="recaptchaResponse">
             <input type="hidden" name="formServices" value="4cbda334-2a8e-86bf-a738-416123f9a96c">
+            <input type="hidden" name="siteKey" value="6LcBUYAqAAAAAGY4qW-fE9HVCLZWFw2HweFNpoEP">
           </form>
         </div>
       </div>
@@ -160,7 +266,8 @@
     
     
     <footer class="u-align-center u-clearfix u-custom-color-2 u-footer u-footer" id="sec-a46d"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Solvier Document Services, LLC 2023</p>
+        <p class="u-small-text u-text u-text-variant u-text-1">Solvier Document Services, LLC 2025<br>Santa Ana Ca, 92701&nbsp;<br>P: ‪(619) 500-6542‬
+        </p>
       </div></footer>
   
 </body></html>
